@@ -5,7 +5,8 @@ var start = document.querySelector('#start-timer');
 var skip = document.querySelector('#skip-timer');
 var workPeriod = true;
 var switchTime = true;
-
+var minute = 24;
+var sec = 59;
 // // Populate Notes From Page
 // chrome.tabs.query({
 //   active: true,
@@ -69,10 +70,10 @@ var switchTime = true;
 //   location.reload();
 // };
 
-while (switchTime == true){
+if (switchTime == true){
   start.onclick = function() {
-    var minute = 24;
-    var sec = 59;
+    // var minute = 24;
+    // var sec = 59;
     setInterval(function() {
       document.getElementById("timer").innerHTML = minute + " : " + sec;
       sec--;
@@ -92,11 +93,26 @@ while (switchTime == true){
   }
 }
 
-
 skip.onclick = function() {
-  var minute = 4;
-  var sec = 59;
-  document.getElementById("timer").innerHTML = minute + " : " + sec;
+  if (switchTime == true){
+    switchTime = false;
+    console.log("Switch time = true");
+  }
+  else if (switchTime == false){
+    minute = 4;
+    sec = 59;
+    document.getElementById("timer").innerHTML = minute + " : " + sec;
+    console.log("while loop");
+    switchTime = true;
+    console.log("Switch time = false");
+  }
+}
+
+// while (switchTime == false){
+//   minute = 4;
+//   sec = 59;
+//   document.getElementById("timer").innerHTML = minute + " : " + sec;
+//   console.log("while loop");
   // if (workPeriod == false){
   //   minute = 24;
   //   sec = 59;
@@ -105,4 +121,4 @@ skip.onclick = function() {
   //   minute = 4;
   //   sec = 59;
   // }
-}
+//}
