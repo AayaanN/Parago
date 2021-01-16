@@ -1,5 +1,5 @@
 {
-  "name": "Note Taker Done App",
+  "name": "Pomodoro App",
   "version": "0.0.1",
   "description": "Take Notes on web pages!",
   "permissions": ["tabs","activeTab","declarativeContent", "storage"],
