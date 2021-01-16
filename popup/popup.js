@@ -1,8 +1,7 @@
-// refers to different elements on document
 var saveNote = document.querySelector('#save-note');
 var deleteNotes = document.querySelector('#delete-notes');
 var notesField = document.querySelector('#note-value');
-
+var startTimer = document.querySelector('#start-timer');
 
 // Populate Notes From Page
 chrome.tabs.query({
@@ -46,30 +45,40 @@ deleteNotes.onclick = function () {
 
 // Save Note
 saveNote.onclick = function () {
-  let note = notesField.value;
   chrome.tabs.query({
     active: true,
     currentWindow: true
-  }, function(tabs) {
-    let url = tabs[0].url;// url of tab we're currently on
+  }, function (tabs) {
+    // Something
+    let url = tabs[0].url;
+    let note = notesField.value;
     chrome.storage.local.get(url, notes => {
-      if (notes[url])   // checking if notes at our url is empty
-        notes[url].push(note);  // then we add to notes
+      if (notes[url])
+        notes[url].push(note);
       else
         notes[url] = [note];
-      chrome.storage.local.set(notes);  // saves notes
-      // this is where we want to send message
-      chrome.tabs.sendMessage(tabs[0].id,
-        {
-          action: "add",
-          notes: [note]
-        }, res => {
-          console.log("Added Note!");
-        }
-        );
+      chrome.tabs.sendMessage(tabs[0].id, {notes: [note], action: "add"}, _ => {
+        console.log("Added Note: '"+ note);
+      });
+      chrome.storage.local.set(notes);
     });
   });
   location.reload();
 };
 
-// now we've saved the notes, but we have to communicate with the actual content to be able to display them
+startTimer.onclick = function () {
+  var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}

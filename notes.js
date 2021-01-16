@@ -1,3 +1,7 @@
+
+var noteCount = 0;
+init_notes();
+
 function clear_notes() {
   document.querySelectorAll('.htn-sticky-note-class').forEach(e => e.remove());
   noteCount = 0;
@@ -53,33 +57,34 @@ function draggable(DOMelement) {
     DOMelement.style.left = DOMelement.offsetLeft - x1 + "px";
   }
 }
-
+///// EDIT CODE BELOW THIS LINE
 function init_notes() {
   let url = document.URL;
-  let notesList = document.getElementById("notes");
-  chrome.storage.local.get(url, notes => {
+  chrome.storage.local.get(document.URL, notes => {
     if (notes[url]) {
       add_notes(notes[url]);
     }
   });
 }
 
-var noteCount = 0;
-init_notes();
-
-// TODO: Add Message Event Listener to Prompt Sticky Note Functions
 chrome.runtime.onMessage.addListener(
-  (request, sender, sendResponse) => {
-    // NOTE: action is not standard key; 
-    //  it's a key we're going to define on the sending side
-    if (request.action == "add") {
-      add_notes(request.notes);
-      sendResponse({status: "complete"});
-    } else if (request.action == "clear") {
+  (request, _, sendResponse) => {
+    if (request.action == "clear") {  // Delete All Notes on the Page
       clear_notes();
       sendResponse({status: "complete"});
-    } else {
+    }
+    else if (request.action == "add") { // Add New Notes to Page
+      add_notes(request.notes);
+      sendResponse({status: "complete"});
+    } 
+    else {
       sendResponse({status: "error"});
     }
   }
 );
+
+
+
+
+
+

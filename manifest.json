@@ -1,8 +1,8 @@
 {
-  "name": "Note Taker App Starter",
+  "name": "Pomodoro App",
   "version": "0.0.1",
   "description": "Take Notes on web pages!",
-  "manifest_version": 2,
+  "permissions": ["tabs","activeTab","declarativeContent", "storage"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
@@ -10,12 +10,11 @@
   "page_action": {
     "default_popup": "popup/popup.html"
   },
-  "permissions": ["tabs", "activeTab", "declarativeContent", "storage"],
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["notes.js"],
-      "css": ["notes.css"]
-    }
-  ]
+        "matches": ["<all_urls>"],
+        "css": ["notes.css"],
+        "js": ["notes.js"]
+    }],
+  "manifest_version": 2
 }
