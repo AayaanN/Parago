@@ -1,3 +1,6 @@
+// dual "tab" feature for pomodoro and visualization
+
+
 // set the dimensions and margins of the graph
 var width = 450
     height = 450

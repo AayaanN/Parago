@@ -5,24 +5,24 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="popup.css">
-    <style>
+    <link href='https://fonts.googleapis.com/css?family=Staatliches' rel='stylesheet'>    <style>
     </style>
   </head>
-  <body>
+  <body >
     <!-- Load d3.js & color scale -->
-    <script src="https://d3js.org/d3.v4.js"></script>
-    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  <!--   <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script> -->
 
     <!-- Create a div where the graph will take place -->
     <div id="timeVis"></div>
 
     <div id="notes-container">
-      <h6 style="color:rgb(245, 73, 61)">Pomodoro</h6>
+      <h6 style="font-family: 'Staatliches'; color:rgb(245, 73, 61); font-size: 35px">Pomodoro</h6>
       <ul id="notes"></ul>
     </div>
     <div class="container">
       <!--<textarea class="form-control" id="note-value"></textarea>-->
-    <div style="color:rgb(255, 255, 255)"><span id="timer">25:00<span> </div>
+    <div style="font-family: 'Staatliches'; color:rgb(255, 255, 255); font-size: 27px"><span id="timer">25:00<span> </div>
       </br>
       <!--
       <button class="btn btn-dark" id="save-note">Save Note</button>
@@ -30,9 +30,14 @@
       -->
       <button class="btn btn-danger" id="start-timer">Start Timer</button>
       <button class="btn btn-dark" id="skip-timer">Skip Timer</button>
-
       
       <script src="popup.js"></script>
     </div>
+
+    <div class="btn-group" role="group" aria-label="buttons-outlined">
+      <button type="button" class="btn btn-outline-primary" id="btn-timer">Timer</button>
+      <button type="button" class="btn btn-outline-primary" id="btn-vis">Visualizer</button>
+    </div>
+
   </body>
 </html>
