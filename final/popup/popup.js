@@ -68,17 +68,19 @@ var window = document.querySelector('#start-timer');
 // };
 
 window.onclick = function() {
-  var minute = 24;
+  var minute = 0;
   var sec = 59;
   setInterval(function() {
     document.getElementById("timer").innerHTML = minute + " : " + sec;
     sec--;
-    if (sec == 00) {
+    if(minute==0 && sec == 00){
+      minute = 4;
+      sec = 59;
+    }
+    else if (sec == 00) {
       minute --;
       sec = 59;
-      if (minute == 0) {
-        minute = 24;
-      }
     }
   }, 1000);
 }
+

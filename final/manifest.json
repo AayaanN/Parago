@@ -1,7 +1,7 @@
 {
-  "name": "Pomodoro App",
+  "name": "freeTime",
   "version": "0.0.1",
-  "description": "Take Notes on web pages!",
+  "description": "Turn your free time into me time!",
   "permissions": ["tabs","activeTab","declarativeContent", "storage"],
   "background": {
     "scripts": ["background.js"],
