@@ -2,6 +2,9 @@
 //var deleteNotes = document.querySelector('#delete-notes');
 //var notesField = document.querySelector('#note-value');
 var start = document.querySelector('#start-timer');
+var skip = document.querySelector('#skip-timer');
+var workPeriod = true;
+var switchTime = true;
 
 // // Populate Notes From Page
 // chrome.tabs.query({
@@ -66,19 +69,40 @@ var start = document.querySelector('#start-timer');
 //   location.reload();
 // };
 
-start.onclick = function() {
-  var minute = 0;
+while (switchTime == true){
+  start.onclick = function() {
+    var minute = 24;
+    var sec = 59;
+    setInterval(function() {
+      document.getElementById("timer").innerHTML = minute + " : " + sec;
+      sec--;
+      if(minute==0 && sec == 00 && workPeriod==true){
+        minute = 4;
+        sec = 59;
+      }
+      else if(minute==0 && sec == 00 && workPeriod==false){
+        minute = 24;
+        sec = 59;
+      }
+      else if (sec == 00) {
+        minute --;
+        sec = 59;
+      }
+    }, 1000);
+  }
+}
+
+
+skip.onclick = function() {
+  var minute = 4;
   var sec = 59;
-  setInterval(function() {
-    document.getElementById("timer").innerHTML = minute + " : " + sec;
-    sec--;
-    if(minute==0 && sec == 00){
-      minute = 4;
-      sec = 59;
-    }
-    else if (sec == 00) {
-      minute --;
-      sec = 59;
-    }
-  }, 1000);
+  document.getElementById("timer").innerHTML = minute + " : " + sec;
+  // if (workPeriod == false){
+  //   minute = 24;
+  //   sec = 59;
+  // }
+  // else if(workPeriod == true){
+  //   minute = 4;
+  //   sec = 59;
+  // }
 }
