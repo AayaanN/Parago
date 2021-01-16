@@ -83,9 +83,11 @@ if (page == 1){
         page = 2;
       }
       else if(minute==0 && sec == 00 && page == 2){
+        var element = document.getElementById("notes_textarea");
+        element.classList.add("notes_visible");
         minute = 24;
         sec = 59;
-        page = 1;
+        page = 3;
       }
       else if (sec == 00) {
         minute --;
@@ -97,8 +99,8 @@ if (page == 1){
 
 skip.onclick = function() {
   if (page == 1){
-    minute = 4;
-    sec = 59;
+    minute = 0;
+    sec = 03;
     document.getElementById("timer").innerHTML = minute + " : " + sec;
     page = 2;
     console.log(page);
