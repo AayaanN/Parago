@@ -67,7 +67,10 @@ saveNote.onclick = function () {
 };
 
 startTimer.onclick = function () {
-
+  chrome.tabs.query({
+    active: true,
+    lastFocusedWindow: true
+  },
 
 
 }
