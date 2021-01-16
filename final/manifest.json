@@ -8,6 +8,7 @@
     "persistent": false
   },
   "page_action": {
+    "default_icon": "logo.png",
     "default_popup": "popup/popup.html"
   },
   "content_scripts": [
