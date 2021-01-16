@@ -2,83 +2,83 @@ var saveNote = document.querySelector('#save-note');
 var deleteNotes = document.querySelector('#delete-notes');
 var notesField = document.querySelector('#note-value');
 var startTimer = document.querySelector('#start-timer');
+var window = document.querySelector('#start-timer');
 
-// Populate Notes From Page
-chrome.tabs.query({
-  active: true,
-  lastFocusedWindow: true
-}, tabs => {
-  let url = tabs[0].url;
-  let notesList = document.getElementById("notes");
+// // Populate Notes From Page
+// chrome.tabs.query({
+//   active: true,
+//   lastFocusedWindow: true
+// }, tabs => {
+//   let url = tabs[0].url;
+//   let notesList = document.getElementById("notes");
 
-  // Grab the notes for the page
-  chrome.storage.local.get(url, notes => {
-    if (notes[url]) {
-      for (var i = 0; i < notes[url].length; i++) {
-        var li = document.createElement("li");
-        li.appendChild(document.createTextNode(notes[url][i]));
-        notesList.appendChild(li);
+//   // Grab the notes for the page
+//   chrome.storage.local.get(url, notes => {
+//     if (notes[url]) {
+//       for (var i = 0; i < notes[url].length; i++) {
+//         var li = document.createElement("li");
+//         li.appendChild(document.createTextNode(notes[url][i]));
+//         notesList.appendChild(li);
+//       }
+//     }
+//   });
+// });
+
+// notesField.focus();
+
+// // Delete Notes
+// deleteNotes.onclick = function () {
+//   chrome.tabs.query({
+//     active: true,
+//     lastFocusedWindow: true
+//   }, tabs => {
+//     let url = tabs[0].url;
+//     chrome.storage.local.get(url, notes => {
+//       notes[url] = []
+//       chrome.storage.local.set(notes);
+//       chrome.tabs.sendMessage(tabs[0].id, {notes: notes[url], action: "clear"}, _ => {
+//         console.log("Cleared page");
+//         location.reload();
+//       });
+//     });
+//   });
+// }
+
+// // Save Note
+// saveNote.onclick = function () {
+//   chrome.tabs.query({
+//     active: true,
+//     currentWindow: true
+//   }, function (tabs) {
+//     // Something
+//     let url = tabs[0].url;
+//     let note = notesField.value;
+//     chrome.storage.local.get(url, notes => {
+//       if (notes[url])
+//         notes[url].push(note);
+//       else
+//         notes[url] = [note];
+//       chrome.tabs.sendMessage(tabs[0].id, {notes: [note], action: "add"}, _ => {
+//         console.log("Added Note: '"+ note);
+//       });
+//       chrome.storage.local.set(notes);
+//     });
+//   });
+//   location.reload();
+// };
+
+window.onload = function() {
+  var minute = 24;
+  var sec = 59;
+  setInterval(function() {
+    document.getElementById("timer").innerHTML = minute + " : " + sec;
+    sec--;
+    if (sec == 00) {
+      minute --;
+      sec = 59;
+      if (minute == 0) {
+        minute = 24;
       }
     }
-  });
-});
-
-notesField.focus();
-
-// Delete Notes
-deleteNotes.onclick = function () {
-  chrome.tabs.query({
-    active: true,
-    lastFocusedWindow: true
-  }, tabs => {
-    let url = tabs[0].url;
-    chrome.storage.local.get(url, notes => {
-      notes[url] = []
-      chrome.storage.local.set(notes);
-      chrome.tabs.sendMessage(tabs[0].id, {notes: notes[url], action: "clear"}, _ => {
-        console.log("Cleared page");
-        location.reload();
-      });
-    });
-  });
-}
-
-// Save Note
-saveNote.onclick = function () {
-  chrome.tabs.query({
-    active: true,
-    currentWindow: true
-  }, function (tabs) {
-    // Something
-    let url = tabs[0].url;
-    let note = notesField.value;
-    chrome.storage.local.get(url, notes => {
-      if (notes[url])
-        notes[url].push(note);
-      else
-        notes[url] = [note];
-      chrome.tabs.sendMessage(tabs[0].id, {notes: [note], action: "add"}, _ => {
-        console.log("Added Note: '"+ note);
-      });
-      chrome.storage.local.set(notes);
-    });
-  });
-  location.reload();
-};
-
-startTimer.onclick = function () {
-  var timer = duration, minutes, seconds;
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
-
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = minutes + ":" + seconds;
-
-        if (--timer < 0) {
-            timer = duration;
-        }
-    }, 1000);
+  }, 1000);
 }
