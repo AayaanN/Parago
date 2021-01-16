@@ -4,7 +4,7 @@
 var start = document.querySelector('#start-timer');
 var skip = document.querySelector('#skip-timer');
 var workPeriod = true;
-var switchTime = true;
+var page = 1;
 var minute = 24;
 var sec = 59;
 // // Populate Notes From Page
@@ -70,20 +70,22 @@ var sec = 59;
 //   location.reload();
 // };
 
-if (switchTime == true){
+if (page == 1){
   start.onclick = function() {
     // var minute = 24;
     // var sec = 59;
     setInterval(function() {
       document.getElementById("timer").innerHTML = minute + " : " + sec;
       sec--;
-      if(minute==0 && sec == 00 && workPeriod==true){
+      if(minute==0 && sec == 00 && page == 1){
         minute = 4;
         sec = 59;
+        page = 2;
       }
-      else if(minute==0 && sec == 00 && workPeriod==false){
+      else if(minute==0 && sec == 00 && page == 2){
         minute = 24;
         sec = 59;
+        page = 1;
       }
       else if (sec == 00) {
         minute --;
@@ -94,17 +96,20 @@ if (switchTime == true){
 }
 
 skip.onclick = function() {
-  if (switchTime == true){
-    switchTime = false;
-    console.log("Switch time = true");
-  }
-  else if (switchTime == false){
+  if (page == 1){
     minute = 4;
     sec = 59;
     document.getElementById("timer").innerHTML = minute + " : " + sec;
+    page = 2;
+    console.log(page);
+  }
+  else if (page == 2){
+    minute = 24;
+    sec = 59;
+    document.getElementById("timer").innerHTML = minute + " : " + sec;
     console.log("while loop");
-    switchTime = true;
-    console.log("Switch time = false");
+    page = 1;
+    console.log(page);
   }
 }
 
