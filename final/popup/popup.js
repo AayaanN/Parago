@@ -1,7 +1,7 @@
 var saveNote = document.querySelector('#save-note');
 var deleteNotes = document.querySelector('#delete-notes');
 var notesField = document.querySelector('#note-value');
-
+var countDownDate = new Date("Jul 25, 2021 16:37:52").getTime();
 
 // Populate Notes From Page
 chrome.tabs.query({
