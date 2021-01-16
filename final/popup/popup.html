@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<meta charset="utf-8">
 <html>
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -8,6 +9,13 @@
     </style>
   </head>
   <body>
+    <!-- Load d3.js & color scale -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+    <!-- Create a div where the graph will take place -->
+    <div id="timeVis"></div>
+
     <div id="notes-container">
       <h6 style="color:rgb(245, 73, 61)">Pomodoro</h6>
       <ul id="notes"></ul>
