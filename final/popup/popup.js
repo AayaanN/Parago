@@ -67,7 +67,7 @@ var window = document.querySelector('#start-timer');
 //   location.reload();
 // };
 
-window.onload = function() {
+window.onclick = function() {
   var minute = 24;
   var sec = 59;
   setInterval(function() {
