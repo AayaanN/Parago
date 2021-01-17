@@ -17,16 +17,22 @@ function storeTasks(key, value) {
     if (typeof data[key] === 'undefined') {
       // this is where we were unsure about the typo --> does this mean in or not in storage??
       //    we're currently going with it means NOT in storage
-      chrome.storage.sync.set({key: value}, function() {
+      var map1 = {};
+      map1[key] = value;
+      chrome.storage.sync.set(map1, function() {
         console.log(value + " was saved for " + key);
       });
     } else {
-      var preValue = chrome.storage.sync.get(key,function(data){
-        return data[key];
+      console.log("made it to else statement!!");
+      chrome.storage.sync.get(key, function(data) {
+        preValue =  data[key];
+        var map2 = {};
+        map2[key] = value + preValue;
+        chrome.storage.sync.set(map2, function() {
+          console.log(value+preValue + " was saved for " + key);
+        });
       });
-      chrome.storage.sync.set({key: value+preValue}, function() {
-        console.log(value+preValue + " was saved for " + key);
-      });
+      
     }
   });
 };
@@ -34,12 +40,23 @@ function storeTasks(key, value) {
 function getData() {
   // inputting null gets it to return all keys??
   var allKeys = chrome.storage.sync.get(null, function(items) {
+    /*
     console.log("hi");
     return Object.keys(items);
+    */
+    var allKeys = Object.keys(items);
+    console.log("allKeys " + allKeys + " " + allKeys.length);
+
+    for (key in allKeys) {
+      console.log("loop " + key + " : " + allKeys[key]);
+    }
     //return Object.keys(items);
   });
-  console.log(allKeys);
+  //console.log("allKeys " + allKeys);
 };
+
+storeTasks("sleep", 25);
+storeTasks("hello", 25);
 
 
 //---------------------------------- alarm stuff
@@ -267,6 +284,7 @@ toggleTimer.onclick = function() {
 toggleVis.onclick = function() {
   document.getElementById("timer-page").style.display = "none";
   document.getElementById("timeVis").style.display = "block";
+  getData();
   console.log("2");
 };
 
