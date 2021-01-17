@@ -17,29 +17,57 @@ function storeTasks(key, value) {
     if (typeof data[key] === 'undefined') {
       // this is where we were unsure about the typo --> does this mean in or not in storage??
       //    we're currently going with it means NOT in storage
-      chrome.storage.sync.set({key: value}, function() {
+      var map1 = {};
+      map1[key] = value;
+      chrome.storage.sync.set(map1, function() {
         console.log(value + " was saved for " + key);
       });
     } else {
-      var preValue = chrome.storage.sync.get(key,function(data){
-        return data[key];
-      });
-      chrome.storage.sync.set({key: value+preValue}, function() {
-        console.log(value+preValue + " was saved for " + key);
-      });
+      console.log("made it to else statement!!");
+      //chrome.storage.sync.get(key, function(data) {
+        preValue =  data[key];
+        console.log("preValue " + preValue);
+        var map2 = {};
+        map2[key] = (value + preValue);
+        console.log("map2 " + map2[key]);
+        chrome.storage.sync.set(map2, function() {
+          console.log(value+preValue + " was saved for " + key);
+        });
+     // });
     }
   });
 };
 
+var globalTaskList = new Map();
+
 function getData() {
   // inputting null gets it to return all keys??
   var allKeys = chrome.storage.sync.get(null, function(items) {
+    /*
     console.log("hi");
     return Object.keys(items);
-    //return Object.keys(items);
+    */
+    console.log("items: ");
+    console.log(items);
+    var allKeys = Object.keys(items);
+    console.log("allKeys " + allKeys + " " + allKeys.length);
+
+    for (var i = 0; i < allKeys.length; i++) {
+      console.log("big for loop");
+      console.log(allKeys[i]);
+      console.log(items[allKeys[i]]);
+      globalTaskList[allKeys[i]] = items[allKeys[i]];
+    }
+    //return items;
   });
-  console.log(allKeys);
+  //console.log("ALLKEYS");
+  //console.log(allKeys);
+  //return allKeys;
+  //console.log("allKeys " + allKeys);
 };
+
+storeTasks("sleep", 25);
+storeTasks("hello", 25);
 
 
 //---------------------------------- alarm stuff
@@ -267,10 +295,14 @@ toggleTimer.onclick = function() {
 toggleVis.onclick = function() {
   document.getElementById("timer-page").style.display = "none";
   document.getElementById("timeVis").style.display = "block";
+  getData();
+  console.log("globalTaskList");
+  console.log(globalTaskList);
   console.log("2");
 };
 
-
+console.log("globalTaskList");
+console.log(globalTaskList);
   /*
   if(document.getElementById('btn-timer').checked) { 
     document.getElementById("timer-page").style.display = "block";
@@ -309,6 +341,9 @@ function display() {
 };
 
 // !!! BELOW IS DATA VIS PART !!!
+
+// MOVE THIS INTO TOGGLEVIS FUNCTION??
+
 // dual "tab" feature for pomodoro and visualization
 
 
@@ -329,12 +364,18 @@ var svg = d3.select("#timeVis")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
 // Create dummy data
-var data = {a: 9, b: 20, c:30, d:8, e:12, f:3, g:7, h:14}
+//var data = {a: 9, b: 20, c:30, d:8, e:12, f:3, g:7, h:14}
+var data = globalTaskList;
 
 // set the color scale
 var color = d3.scaleOrdinal()
-  .domain(["a", "b", "c", "d", "e", "f", "g", "h"])
+  //.domain(["a", "b", "c", "d", "e", "f", "g", "h"])
+  .domain(data.keys())
   .range(d3.schemeSet2);
+
+console.log(data);
+console.log("data.keys()");
+console.log(data.keys());
 
 // Compute the position of each group on the pie:
 var pie = d3.pie()

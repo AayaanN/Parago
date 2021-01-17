@@ -14,8 +14,20 @@ body {
   text-align: center;
 }
 
-.btn-group {
+.timer-page {
+  text-align: center;
+}
 
+.skip-timer {
+  text-align: center;
+}
+
+.start-timer {
+  text-align: center;
+}
+
+.btn-group {
+  text-align: center;
   padding: 10px
 }
 .timeVis {
@@ -24,10 +36,11 @@ body {
 .notes-container {
   text-align: center;
 }
-
+/*
 li {
   text-align: left;
 }
+*/
 .notes_hidden{
   display: none;
 }
