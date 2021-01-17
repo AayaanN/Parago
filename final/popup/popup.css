@@ -4,10 +4,14 @@ body {
   background-color: #302e2e;
 }
 
-.container {
+.timer {
   width: 300px;
   padding: 10px;
   text-align: center;
+}
+
+.btn-group {
+  padding: 10px
 }
 
 .notes-container {
@@ -16,4 +20,10 @@ body {
 
 li {
   text-align: left;
+}
+.notes_hidden{
+  display: none;
+}
+.notes_visible{
+  display: block;
 }

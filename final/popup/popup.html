@@ -8,20 +8,17 @@
     <style>
     </style>
   </head>
-  <body>
-    <!-- Load d3.js & color scale -->
-  <!--   <script src="https://d3js.org/d3.v4.js"></script>
-    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script> -->
-
-    <!-- Create a div where the graph will take place -->
-    <div id="timeVis"></div>
+  <body >
+    
 
     <div id="notes-container">
       <h6 style="color:rgb(245, 73, 61)">Pomodoro</h6>
       <ul id="notes"></ul>
     </div>
-    <div class="container">
-      <!--<textarea class="form-control" id="note-value"></textarea>-->
+
+    <!-- TIMER PAGE SECTION -->
+    <div id="timer-page">
+    <textarea class="form-control notes_hidden" id="notes_textarea"></textarea>
     <div style="color:rgb(255, 255, 255)"><span id="timer">25:00<span> </div>
       </br>
       <!--
@@ -30,14 +27,24 @@
       -->
       <button class="btn btn-danger" id="start-timer">Start Timer</button>
       <button class="btn btn-dark" id="skip-timer">Skip Timer</button>
+
       
-      <script src="popup.js"></script>
     </div>
+
+    <!-- VISUALIZATION SECTION -->
+    <!-- Load d3.js & color scale -->
+    <script src="d3.v4.js"></script>
+    <script src="d3-colours.js"></script>
+
+    <!-- Create a div where the graph will take place -->
+    <div id="timeVis"></div>
 
     <div class="btn-group" role="group" aria-label="buttons-outlined">
       <button type="button" class="btn btn-outline-primary" id="btn-timer">Timer</button>
       <button type="button" class="btn btn-outline-primary" id="btn-vis">Visualizer</button>
     </div>
+
+    <script src="popup.js"></script>
 
   </body>
 </html>
