@@ -17,3 +17,9 @@ body {
 li {
   text-align: left;
 }
+.notes_hidden{
+  display: none;
+}
+.notes_visible{
+  display: block;
+}
