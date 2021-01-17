@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7 lte-ie9"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8 lte-ie9"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9 lte-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lte-ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html lang="en" class="no-js" xmlns:fb="http://ogp.me/ns/fb#" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/" itemscope="itemscope" itemtype="http://schema.org/WebPage"> <!--<![endif]-->
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# challengepost: http://ogp.me/ns/fb/challengepost#">
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WCFRZ3V');</script>
+<!-- End Google Tag Manager -->
+
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"f9082fa052","applicationID":"7341974","transactionName":"IQpdERFeXFVVRhpbCw8AHBYMV0ROUUZQQEsHAVoR","queueTime":1,"applicationTime":107,"agent":""}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"f9082fa052",applicationID:"7341974"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <meta name="viewport" content="width=device-width">
+    <title>Devpost</title>
+
+    <meta name="description" content="Participate in online virtual and in-person hackathons to build products, practice skills, learn technologies, win prizes, and grow your network." />
+<meta property="fb:app_id" content="115745995110194" />
+<meta property="og:title" content="Devpost - The home for hackathons" />
+<meta property="og:description" content="Participate in online virtual and in-person hackathons to build products, practice skills, learn technologies, win prizes, and grow your network." />
+<meta property="og:type" content="challengepost:website" />
+<meta property="og:site_name" content="Devpost - The home for hackathons" />
+<meta property="og:image" content="https://devpost-challengepost.netdna-ssl.com/assets/shared/devpost_social_icon_large-28837f669f737318284e216fba9ad696.jpg" />
+<meta property="og:url" content="https://devpost.com/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@Devpost" />
+<meta name="twitter:title" content="Devpost - The home for hackathons" />
+<meta name="twitter:description" content="Participate in online virtual and in-person hackathons to build products, practice skills, learn technologies, win prizes, and grow your network." />
+<meta name="twitter:image" content="https://devpost-challengepost.netdna-ssl.com/assets/shared/devpost_social_icon_large-28837f669f737318284e216fba9ad696.jpg" />
+<meta name="twitter:domain" content="devpost.com" />
+<meta name="twitter:url" content="https://devpost.com/" />
+<meta name="twitter:creator" content="@Devpost" />
+<meta itemprop="name" content="Devpost - The home for hackathons" />
+<meta itemprop="description" content="Participate in online virtual and in-person hackathons to build products, practice skills, learn technologies, win prizes, and grow your network." />
+<meta itemprop="image" content="https://devpost-challengepost.netdna-ssl.com/assets/shared/devpost_social_icon_large-28837f669f737318284e216fba9ad696.jpg" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="Fi2MXLElo0Qio3vfX3PVoZoucpM8j1iDVt12y5kKbwtKHaO0c2Cwv8uv8TyMxX2IBjJKFciVLFFoUlGm7BK15Q==" />
+    
+
+    <!--[if gt IE 7]><!-->
+    <script src="https://kit.fontawesome.com/0c13a9f144.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" media="screen" href="https://devpost-challengepost.netdna-ssl.com/assets/reimagine2-df0ca4f73a3c5b51e834f6f032799e92.css" />
+    <link rel="stylesheet" media="screen" href="https://devpost-challengepost.netdna-ssl.com/assets/home/home_application-2942dff2e28cf69d0f2b42f781f4a364.css" />
+    
+    <script src="https://devpost-challengepost.netdna-ssl.com/assets/modernizr-bef57869320b416d48fb2c5087d5e793.js"></script>
+    <!--<![endif]-->
+  </head>
+
+  <body id="body-softwares" class="foundation-grid action-edit controller-softwares engine-home">
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCFRZ3V"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    
+
+    <!--googleoff: anchor-->
+
+<!--[if lte IE 9 ]>
+  <div id="unsupported_browser_version" class="persistent_message alert-box alert">
+    <p>
+      We've detected that you are using an unsupported browser.  Please
+      <a href="http://browsehappy.com/">upgrade your browser</a>
+      to Internet Explorer 10 or higher.
+    </p>
+  </div>
+<![endif]-->
+
+
+<!--googleon: anchor-->
+
+
+
+    
+    
+    
+  
+<header id="global-nav">
+  <div class="contain-to-grid hide-for-large-up">
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area top-bar-section">
+      <li>
+        <a class="toggle-topbar has-dropdown text-center" data-target-menu="world" id="hamburger" href="#">
+          <i class="ss-icon ss-rows"></i>
+</a>      </li>
+      <li class="name">
+
+        <span id="logo">
+  <a href="https://devpost.com">
+    <img alt="Devpost" src="https://devpost-challengepost.netdna-ssl.com/assets/reimagine2/devpost-logo-646bdf6ac6663230947a952f8d354cad.svg" />
+</a></span>
+
+      </li>
+
+        <li class="toggle-topbar has-dropdown" data-target-menu="user">
+    <a class="user" id="global-nav-screen-name" aria-label="Access your account menu" href="https://devpost.com/natalie-volk2?ref_content=user-portfolio&amp;ref_feature=portfolio&amp;ref_medium=global-nav">
+      <img alt="natalie-volk2" class="user-avatar user-photo facebook_avatar_image image-replacement" onerror="this.onerror=null;this.src=&#39;https://devpost-challengepost.netdna-ssl.com/assets/defaults/no-avatar-100-17cf519ce6f8e4e0e83758ea09fc5eb3.png&#39;;" src="https://lh3.googleusercontent.com/a-/AOh14GiSnap9n3yogbPOeanX7vjZh-wbUbMffQwaGa7C?type=square" />
+
+</a>  </li>
+
+      
+    </ul>
+
+    <section class="top-bar-section" data-top-nav-menu="user">
+        <ul class="right logged-in">
+  <li class="divider"></li>
+  <li>
+    <a href="https://devpost.com/natalie-volk2?ref_content=user-portfolio&amp;ref_feature=portfolio&amp;ref_medium=global-nav">Portfolio</a>
+  </li>
+  <li class="divider"></li>
+
+
+
+  <li id="global-nav-user-settings">
+    <a href="https://devpost.com/settings">Settings</a>
+  </li>
+  <li class="divider"></li>
+
+  <li id="global-nav-user-log-out" data-global-nav-user="log-out">
+    <a rel="nofollow" data-method="delete" href="/users/logout">Log out</a>
+  </li>
+  <li class="divider"></li>
+
+
+</ul>
+
+
+    </section>
+
+    <section class="top-bar-section" data-top-nav-menu="world">
+      <ul class="right">
+  <li class="divider"></li>
+<li>
+  <a class="main-link" data-role="discover" href="https://devpost.com/hackathons">
+    Hackathons
+</a></li>
+<li class="divider"></li>
+<li>
+  <a class="main-link" data-role="projects" href="https://devpost.com/software">
+    Projects
+</a></li>
+  <li class="divider"></li>
+  <li>
+
+      <a class="main-link" data-role="for-orgs" href="https://post.devpost.com">
+        Host a hackathon
+</a>  </li>
+
+</ul>
+
+    </section>
+  </nav>
+</div>
+
+  <div class="contain-to-grid hide-for-small hide-for-medium">
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <span id="logo">
+  <a href="https://devpost.com">
+    <img alt="Devpost" src="https://devpost-challengepost.netdna-ssl.com/assets/reimagine2/devpost-logo-646bdf6ac6663230947a952f8d354cad.svg" />
+</a></span>
+
+      </li>
+    </ul>
+
+    <section class="top-bar-section">
+      <ul class="left">
+  <li class="divider"></li>
+<li>
+  <a class="main-link" data-role="discover" href="https://devpost.com/hackathons">
+    Hackathons
+</a></li>
+<li class="divider"></li>
+<li>
+  <a class="main-link" data-role="projects" href="https://devpost.com/software">
+    Projects
+</a></li>
+
+</ul>
+
+
+      <div class="right">
+          <ul>
+            <li>
+              <a class="main-link" data-role="for-orgs" href="https://post.devpost.com">
+                Host a hackathon
+</a>            </li>
+          </ul>
+
+          <ul class="right logged-in">
+  <li class="hide-for-small" data-region="notification-bell">
+  <a data-notification="bell" data-dropdown="notification-dd" id="notification-button" href="https://devpost.com/notifications"></a>
+</li>
+
+
+  <li class="has-dropdown" id="global-nav-user-dropdown">
+    <a class="user" id="global-nav-screen-name" aria-label="Access your account menu" href="https://devpost.com/natalie-volk2?ref_content=user-portfolio&amp;ref_feature=portfolio&amp;ref_medium=global-nav">
+      <img alt="natalie-volk2" class="user-avatar user-photo facebook_avatar_image image-replacement" onerror="this.onerror=null;this.src=&#39;https://devpost-challengepost.netdna-ssl.com/assets/defaults/no-avatar-100-17cf519ce6f8e4e0e83758ea09fc5eb3.png&#39;;" src="https://lh3.googleusercontent.com/a-/AOh14GiSnap9n3yogbPOeanX7vjZh-wbUbMffQwaGa7C?type=square" />
+
+</a>
+    <ul class="dropdown">
+      <li class="divider"></li>
+
+      <li>
+        <a href="https://devpost.com/natalie-volk2?ref_content=user-portfolio&amp;ref_feature=portfolio&amp;ref_medium=global-nav">Portfolio</a>
+      </li>
+      <li class="divider"></li>
+
+
+
+      <li id="global-nav-user-settings">
+        <a href="https://devpost.com/settings">Settings</a>
+      </li>
+      <li class="divider"></li>
+
+      <li id="global-nav-user-log-out" data-global-nav-user="log-out">
+        <a rel="nofollow" data-method="delete" href="/users/logout">Log out</a>
+      </li>
+      <li class="divider"></li>
+
+
+
+    </ul>
+  </li>
+</ul>
+
+
+      </div>
+    </section>
+  </nav>
+</div>
+
+</header>
+
+
+    <div id="notification-dd"
+     class="f-dropdown medium"
+     data-dropdown-content
+     data-notification="dropdown">
+  <header>
+    <h6 class="text-center">Notifications</h6>
+  </header>
+  <div data-region="dropdown-feed">
+    <p class="text-center loading">Loading...</p>
+  </div>
+  <footer class="text-center" data-region="footer">
+  </footer>
+</div>
+
+
+
+
+    <section id="container">
+        <header class="page-header" id="software-form-header">
+    <div class="row">
+      <div class="small-12 columns">
+
+        <h1>Post a new project</h1>
+
+        <p class="software-header-legalese">
+          Please respect our <a target="_blank" href="https://info.devpost.com/guidelines">community guidelines</a>.
+        </p>
+      </div>
+    </div>
+  </header>
+
+      
+  
+
+
+<div class="content-section">
+  
+<form id="software_editor" data-role="software-editor" data-persist="garlic" autocomplete="off" novalidate="novalidate" class="simple_form edit_software" action="/software/parago" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="patch" /><input type="hidden" name="authenticity_token" value="99+LobSXNBikR67qbC3hdayzXqDweaYiPiMW2u5Qye2r76RJdtIn401LJAm/m0lcMK9mJgRj0vAArDG3m0gTAw==" />
+
+  <input type="hidden" name="timestamp" id="timestamp" value="2021-01-17 09:28:49 -0500" />
+
+  <div class="row">
+    <div class="small-12 large-9 columns">
+      <div class="input string required software_name clearfix"><label class="string required control-label" for="software_name"><abbr title="required">*</abbr> What&#39;s your project called?</label><input class="string required inline-input" data-attribute="title" autofocus="autofocus" required="required" aria-required="true" type="text" value="Parago" name="software[name]" id="software_name" /></div>
+
+
+
+
+      <div class="input string required software_tagline field_with_hint clearfix"><label class="string required control-label" for="software_tagline"><abbr title="required">*</abbr> Here&#39;s the elevator pitch</label><p class="hint">What's your idea? This will be a short tagline for the project</p><input class="string required inline-input" data-attribute="tagline" required="required" aria-required="true" placeholder="A short tagline for the project" type="text" name="software[tagline]" id="software_tagline" /></div>
+
+      <div id="built-with" class="input string required software_tag_list field_with_hint"><label class="string required control-label" for="software_tag_list"><abbr title="required">*</abbr> Built with</label><p class="hint">What languages, frameworks, platforms, cloud services, databases, APIs, or other technologies did you use?</p><input value="" class="string required" required="required" aria-required="true" placeholder="Languages, frameworks, platforms, cloud services, databases, APIs, etc." type="text" name="software[tag_list]" id="software_tag_list" /></div>
+
+      <div class="software-members">
+  <label>Created by</label>
+
+  <ul data-role="software-members"
+    class="data-list software-members-list">
+  </ul>
+
+  <label>Invite your team</label>
+  <p class="hint">Either share the link below <em>privately</em> with your teammates or send an invite link via email</p>
+
+  <div id="join-url-container">
+    <span class="attachable">
+      <input type="text" name="join_url" id="join_url" value="https://devpost.com/software/parago/joins/q-2dNcmhPKf9MFMB23NsJQ" readonly="readonly" autocomplete="off" class="attachable-base" />
+      <button name="button" type="button" id="copy_join_url" data-clipboard-target="#join_url" class="button flat attach-on-right small">
+        Copy link
+</button>    </span>
+  </div>
+
+  <div class="input" data-role="invite-form">
+  </div>
+
+</div>
+
+    </div>
+    <div class="small-12 large-3 columns">
+      <label for="software_thumbnail_data">Thumbnail image</label>
+
+<div data-thumbnail="container" id="thumbnail-container">
+  <div class="gallery-item">
+    <div class="software-entry gallery-entry fade visible">
+      <figure class="text-center" data-thumbnail="image-preview">
+
+        <img data-thumbnail="image" data-thumbnail-fallback="https://devpost-challengepost.netdna-ssl.com/assets/defaults/thumbnail-placeholder-42bcab8d8178b413922ae2877d8b0868.gif" id="software-thumbnail-image" src="https://devpost-challengepost.netdna-ssl.com/assets/defaults/thumbnail-placeholder-42bcab8d8178b413922ae2877d8b0868.gif" alt="Thumbnail placeholder" />
+
+      </figure>
+
+      <input class="hide" accept="image/jpeg,image/jpg,image/pjpeg,image/png,image/x-png,image/gif" data-photo-upload-action="/upload/980983/photos?url_style=medium" id="software-thumbnail-file-input" type="file" name="photo[data]" />
+
+      <div class="software-entry-name entry-body" data-thumbnail="attributes">
+        <h5>
+          <span data-thumbnail="name">Parago</span>
+          <span class="paragraph-end"></span>
+        </h5>
+
+        <p class="small tagline">
+          <span data-thumbnail="tagline"></span>
+          <span class="paragraph-end"></span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div data-thumbnail='remove' id="software-thumbnail-remove">
+    <p class="small">
+      <label for="software-thumbnail-file-input" id="software-thumbnail-button">Change image</label>
+
+      <span class="software-thumbnail-remove-option right-small hide" data-thumbnail="keeping-message">
+          <label for="software_remove_thumbnail" class="software-thumbnail-remove">Remove</label>
+        </span>
+    </p>
+
+    <p class="small">
+        <span class="software-thumbnail-remove-option hide" data-thumbnail="removing-message">
+          The thumbnail will be removed after you save.
+          <label for="software_remove_thumbnail"><a>undo</a></label>
+        </span>
+    </p>
+
+    <input name="software[remove_thumbnail]" type="hidden" value="no" /><input data-thumbnail="remove-checkbox" class="hide" type="checkbox" value="yes" name="software[remove_thumbnail]" id="software_remove_thumbnail" />
+
+    <ul data-thumbnail="errors" id="software-form-thumbnail-errors" class="no-bullet"></ul>
+  </div>
+
+  <p class="hint">
+    JPG, PNG or GIF format, 5 MB max file size. For best results, use a 3:2 ratio.
+  </p>
+</div>
+
+
+    </div>
+  </div>
+
+  
+<div class="row" id="project-description">
+  <div class="small-12 large-9 columns">
+    <label class="text required control-label" for="software_description"><abbr title="required">*</abbr> About the project</label>
+    <p class="hint">Be sure to write what inspired you, what you learned, how you built your project, and the challenges you faced. Format your story in <a target="_blank" href="https://www.markdownguide.org/cheat-sheet/">Markdown</a>.</p>
+  </div>
+  <div class="small-12 large-9 columns">
+    <div class="input text optional software_description"><textarea data-editable-templates="[&quot;## Inspiration\n\n## What it does\n\n## How I built it\n\n## Challenges I ran into\n\n## Accomplishments that I&#39;m proud of\n\n## What I learned\n\n## What&#39;s next for Parago\n&quot;,&quot;## Inspiration\n\n## What it does\n\n## How we built it\n\n## Challenges we ran into\n\n## Accomplishments that we&#39;re proud of\n\n## What we learned\n\n## What&#39;s next for Parago\n&quot;]" class="text optional" placeholder="## Inspiration...
+" name="software[description]" id="software_description">
+</textarea></div>
+  </div>
+
+  <div class="small-12 large-3 columns">
+    <div class="panel software_description hide-for-small hide-for-medium">
+      <h5 class="mb-5">Markdown tips</h5>
+
+      <h6>Text formatting</h6>
+      <ul>
+        <li class="mb-2">## Headline</li>
+        <li class="mb-2">**bold**</li>
+        <li class="mb-2">_ italics _</li>
+        <li class="mb-2">[link](http://foo.bar)</li>
+        <li class="mb-2">![Alt text](/path/to/img.jpg)</li>
+      </ul>
+
+      <h6>Code block example</h6>
+
+      <pre>
+```ruby
+puts "Hello World!"
+```</pre>
+
+      <a target="_blank" href="https://www.markdownguide.org/cheat-sheet/">
+        Learn more
+</a>    </div>
+  </div>
+</div>
+
+
+  
+<div class="row">
+  <div class="small-12 large-9 columns">
+    <div id="image-gallery" class="input image-gallery-container clearfix" data-image-gallery-container>
+      <label for="software_photo_data">
+        Image gallery
+</label>
+      <p class="hint">
+        JPG, PNG or GIF format, 5 MB max file size. For best results, use a 3:2 ratio.
+      </p>
+
+      <div class="instructions drag-drop align-center flex-column justify-center">
+        <span class="fileinput-button">
+          <label data-id="70166648785280" data-fields="&lt;li class=&quot;panel align-center&quot; data-id=&quot;ids_&quot;&gt;  &lt;input type=&quot;hidden&quot; name=&quot;software[photo_ids][]&quot; id=&quot;software_photo_ids_&quot; /&gt;  &lt;span class=&quot;ss-icon ss-move&quot;&gt;&lt;/span&gt;  &lt;div class=&quot;image-container&quot;&gt;    &lt;img alt=&quot;image&quot; class=&quot;software_photo_image image-replacement&quot; onerror=&quot;this.onerror=null;this.src=&amp;#39;https://devpost-challengepost.netdna-ssl.com/assets/defaults/thumbnail-placeholder-42bcab8d8178b413922ae2877d8b0868.gif&amp;#39;;&quot; src=&quot;https://devpost-challengepost.netdna-ssl.com/assets/defaults/software-d4334efb72013df43784baffede9d379.gif&quot; /&gt;  &lt;/div&gt;  &lt;div class=&quot;input string optional software_photos_caption align-baseline message&quot;&gt;&lt;input class=&quot;string optional&quot; placeholder=&quot;Add a caption&quot; type=&quot;text&quot; name=&quot;software[photos_attributes][70166648785280][caption]&quot; id=&quot;software_photos_attributes_70166648785280_caption&quot; /&gt;&lt;/div&gt;  &lt;a class=&quot;ss-icon ss-delete&quot; data-method=&quot;delete&quot; href=&quot;/software_photos/&quot;&gt;&amp;nbsp;&lt;/a&gt;  &lt;img class=&quot;loading&quot; src=&quot;https://devpost-challengepost.netdna-ssl.com/assets/challenges/indicator-ajax-spinner-c35dfdd8a6109e03c9e1ca0a2170255a.gif&quot; alt=&quot;Indicator ajax spinner&quot; /&gt;  &lt;div class=&quot;input hidden software_photos_id&quot;&gt;&lt;input class=&quot;hidden&quot; type=&quot;hidden&quot; name=&quot;software[photos_attributes][70166648785280][id]&quot; id=&quot;software_photos_attributes_70166648785280_id&quot; /&gt;&lt;/div&gt;&lt;/li&gt;" class="choose_files button small radius" for="software_photo_data">Choose files</label><input type="file" name="software_photo[data]" id="software_photo_data" class="hide" multiple="multiple" accept="image/jpeg,image/jpg,image/pjpeg,image/png,image/x-png,image/gif" data-image-gallery-choose-file="" />
+        </span>
+
+        <span class="drag-drop hide">
+          <p>or drag and drop</p>
+        </span>
+
+        <div data-image-gallery-dropzone class="panel dropzone hide">
+          <h2>Drop files here</h2>
+        </div>
+      </div>
+
+      <ul data-image-gallery-list class="image-gallery-list no-bullet">
+        
+      </ul>
+
+    </div>
+  </div>
+
+  <div class="small-12 large-1 columns">&nbsp;</div>
+</div>
+
+
+  <div class="input">
+  <div class="row">
+    <div class="small-12 columns">
+      <label class="url optional control-label" for="software_urls">&quot;Try it out&quot; links</label>
+<p class="hint">Add links where people can try your project or see your code.</p>
+
+    </div>
+  </div>
+
+  <div class="row software_urls">
+    <div class="small-12 large-9 columns">
+      <div data-role="software-url-fields">
+        
+          <div class="nested-fields " data-new-record="true">
+  <div class="attachable align-baseline">
+    <input class="string url required attachable-base" placeholder="URL for demo site, app store listing, GitHub repo, etc." type="url" name="software[urls_attributes][0][url]" id="software_urls_attributes_0_url" />
+    <input value="false" type="hidden" name="software[urls_attributes][0][_destroy]" id="software_urls_attributes_0__destroy" /><a class="ss-delete ss-icon attach-on-right remove_fields dynamic" href="#">
+</a>  </div>
+  
+</div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="small-12 large-9 columns">
+    <span class="links">
+      <a data-association-insertion-node="[data-role=software-url-fields]" data-association-insertion-method="append" class="all-caps small add_fields" data-association="url" data-associations="urls" data-association-insertion-template="&lt;div class=&quot;nested-fields &quot; data-new-record=&quot;true&quot;&gt;
+  &lt;div class=&quot;attachable align-baseline&quot;&gt;
+    &lt;input class=&quot;string url required attachable-base&quot; placeholder=&quot;URL for demo site, app store listing, GitHub repo, etc.&quot; type=&quot;url&quot; name=&quot;software[urls_attributes][new_urls][url]&quot; id=&quot;software_urls_attributes_new_urls_url&quot; /&gt;
+    &lt;input value=&quot;false&quot; type=&quot;hidden&quot; name=&quot;software[urls_attributes][new_urls][_destroy]&quot; id=&quot;software_urls_attributes_new_urls__destroy&quot; /&gt;&lt;a class=&quot;ss-delete ss-icon attach-on-right remove_fields dynamic&quot; href=&quot;#&quot;&gt;
+&lt;/a&gt;  &lt;/div&gt;
+  
+&lt;/div&gt;
+" href="#">
+        add another link
+</a>    </span>
+    </div>
+  </div>
+</div>
+
+  
+<div class="row">
+  <div class="small-12 large-9 columns">
+    <div class="input url optional software_video_url field_with_hint"><label class="url optional control-label" for="software_video_url">Video demo link</label><p class="hint">This video will be embedded at the top of your project page. Read more about <a target="_blank" href="https://help.devpost.com/hc/en-us/articles/360052233752-Uploading-a-demo-video">uploading videos</a>. </p><input class="string url optional" placeholder="YouTube, Facebook Video, Vimeo or Youku URL" type="url" name="software[video_url]" id="software_video_url" /></div>
+  </div>
+</div>
+
+  <div class="input hidden software_version"><input class="hidden" type="hidden" value="1" name="software[version]" id="software_version" /></div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="form-actions-list">
+        <input type="submit" name="software_form_save_button" value="Save" class="button secondary radius" id="software-save" />
+
+        <br>
+
+        <a id="cancel-link" href="https://hackthenorth2020.devpost.com">Cancel</a>
+      </div>
+    </div>
+  </div>
+
+  <input type="hidden" value="portfolio" name="software[creation_source]" id="software_creation_source" />
+
+  <input value="true" type="hidden" name="software[track_software_submitted]" id="software_track_software_submitted" />
+
+</form>
+
+<form data-image-gallery-form="true" class="new_software_photo" id="new_software_photo" enctype="multipart/form-data" action="https://devpost.com/software_photos" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="9hGQmqXMHWximfTdcvbBXht67Coclyfc5VwVb5vwhWWqIb9yZ4kOl4uVfj6hQGl3h2bUrOiNUw7b0zIC7uhfiw==" />
+  <input type="hidden" value="317714" name="software_photo[attachable_id]" id="software_photo_attachable_id" />
+  <input type="file" name="software_photo[data]" id="software_photo_data" />
+  <input type="submit" name="commit" value="Create Software photo" />
+</form>
+
+
+</div>
+
+
+      
+    </section>
+
+    
+  <footer id="devpost-footer">
+  <div class="row">
+    <div class="small-6 large-3 columns">
+      <nav>
+        <h4>Devpost</h4>
+        <ul>
+          <li><a href="https://info.devpost.com/about">About</a></li>
+          <li><a href="https://info.devpost.com/careers">Careers</a></li>
+          <li><a href="https://info.devpost.com/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="small-6 large-3 columns">
+      <nav>
+        <h4>Hackathons</h4>
+        <ul>
+          <li><a href="https://devpost.com/hackathons">Browse hackathons</a></li>
+          <li><a href="https://devpost.com/software">Explore projects</a></li>
+          <li><a href="https://help.devpost.com/">Help</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <hr class="clear show-for-small">
+
+    <div class="small-6 large-3 columns">
+      <nav>
+        <h4>For Organizations</h4>
+        <ul>
+          <li><a href="https://post.devpost.com/hackathons">Host an in-person hackathon</a></li>
+          <li><a href="https://post.devpost.com/online_hackathons">Host an online hackathon</a></li>
+          <li><a href="https://post.devpost.com/app_contest_resources">Hackathon best practices</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="small-6 large-3 columns">
+      <nav>
+        <h4>Connect</h4>
+        <ul class="social-links">
+          <li>
+            <a href="https://twitter.com/devpost" target="_blank">
+              <i class="fa fa-twitter-square"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/devposthacks" target="_blank">
+              <i class="fa fa-facebook-square"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/playlist?list=PLmJ41elIxG7bRbhhCUQun3e4XNeyKc_-o" target="_blank">
+              <i class="fa fa-youtube-square"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="small-6 large-12 columns">
+      <nav id="site-footer-legal">
+        <h4 class="show-for-small">Legal</h4>
+        <ul>
+          <li><a href="https://info.devpost.com/privacy"><small>Privacy policy</small></a></li>
+          <li><a href="https://info.devpost.com/guidelines"><small>Community Guidelines</small></a></li>
+          <li><a href="https://info.devpost.com/terms"><small>Terms of service</small></a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+
+    
+    <script src="https://devpost-challengepost.netdna-ssl.com/assets/platform-e29b792e741bfaaba1a70cf770e630ce.js"></script>
+<script src="https://devpost-challengepost.netdna-ssl.com/assets/reimagine2-a48096d734ac61554bc8eba48d57a0a8.js"></script>
+
+<script src="https://devpost-challengepost.netdna-ssl.com/assets/home/home_application-ddb1ba9b8198113a3b6deee9ae310613.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+  (function() {
+    mixpanel.identify("1398291");
+    mixpanel.register({"ref_feature":"portfolio","ref_content":"Hack the North 2020++ (5415)","ref_medium":"button"});
+  })();
+</script>
+
+
+
+
+
+
+<script type="text/javascript" charset="utf-8">
+  CP.env.addRoutes({
+    follows_url: "https://devpost.com/follows",
+    search_softwares_url: "https://devpost.com/software/search",
+    new_software_url: "https://devpost.com/software/new",
+    search_hackathons_url: "https://devpost.com/hackathons",
+    notifications_url: "https://devpost.com/notifications",
+    api: {
+      users_url: "https://api.devpost.com/users"
+    }
+  })
+
+  new Reimagine2();
+
+  $(function onDocumentReady() {
+      CP.Home.softwareFormLiveThumbnail();
+  CP.Home.softwareFormLiveThumbnail();
+
+  CP.Home.SoftwarePhotoUploader.setup(
+    $("[data-image-gallery-form]"),
+    $("[data-image-gallery-container]")
+  );
+
+  CP.SortableSorter.setup(
+    $("[data-image-gallery-list]"),
+    '/software_photos/positions?id=317714'
+  );
+  CP.TagTextField.setup($("#software_tag_list"), "https://devpost.com/tags");
+
+  CP.Home.SoftwareFormUrls.setup('[data-role=software-url-fields]');
+  CP.Home.VideoUrlValidator.setup('[data-role=software-url-fields]');
+
+  CP.Home.SoftwareForm.setup('form[data-role="software-editor"]', {
+    tagline_max_length: 200,
+    title_max_length: 60,
+    caption_max_length: 140
+  });
+
+  CP.Home.SoftwareMembersApp.start("/software/parago/members");
+
+  new ClipboardJS('#copy_join_url');
+  CP.SendFormOnCommandEnter.setup($("#masqueradee"));
+  (function(inputs) {
+    if (typeof inputs.cp_autocomplete === "function") inputs.cp_autocomplete();
+    inputs.on('click', function(event) { return false; });
+  })($("#masqueradee"));
+  var FollowButtonApp = new CP.FollowButtonApp({
+    user: {
+      screen_name: "natalie-volk2",
+      follow_through_id: 1398291
+  },
+    urls: {
+      register_url: "https://secure.devpost.com/users/register",
+      user_follows_url: "https://devpost.com/natalie-volk2/follows",
+      follow_through_url: "https://devpost.com/software_members/follows",
+      follow_request_url: "https://devpost.com/follow_requests"
+  },
+  follow_through_scope: "software_member"
+  });
+
+  FollowButtonApp.start();
+  var appOptions = {};
+
+  _.extend(appOptions, {
+    user: {
+      id: 1398291,
+      display_name: "Natalie Volk"
+    }
+  });
+
+  CP.Mn.app.start(appOptions);
+
+  });
+
+</script>
+
+<!--[if lt IE 9 ]>
+  <script type="text/javascript">
+    $(function onDocumentReady() {
+      CP.IE.Notifications.setup();
+    });
+  </script>
+<![endif]-->
+
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "https://devpost.com/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://devpost.com/software/search?query={query}",
+      "query-input": "name=query"
+    }
+}
+</script>
+
+
+
+    
+
+<script type='text/javascript'>try {mixpanel.track("Logged In Pageview", {"time":1610893729,"ip":" 172.31.44.146","distinct_id":"1398291","page_name":"home/softwares#edit","orgs":[]});} catch(err) {};</script></body></html>
