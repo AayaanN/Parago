@@ -301,7 +301,7 @@ toggleVis.onclick = function() {
   console.log("globalTaskList");
   console.log(globalTaskList);
   //console.log("2");
-  dataVisFunc(globalTaskList);
+  setTimeout(function() {dataVisFunc(globalTaskList)}, 500);
 };
 
 console.log("globalTaskList");
