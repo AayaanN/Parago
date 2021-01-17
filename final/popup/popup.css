@@ -35,8 +35,8 @@ button{
   padding: 10px
 }
 .timeVis {
-  /*width: 300px;*/
-  width: 300
+  width: 600px;
+  padding:20px
 }
 .notes-container {
   text-align: center;
