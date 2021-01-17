@@ -23,6 +23,7 @@ if (page == 1){
       document.getElementById("timer").innerHTML = minute + " : " + sec;
       sec--;
       if(minute==0 && sec == 00 && page == 1){
+        alarmAlert();
         minute = 4;
         sec = 59;
         // document.getElementById("save-note").style.display = "none";
@@ -60,6 +61,7 @@ if (page == 1){
 
 skip.onclick = function() {
   if (page == 1){
+    alarmAlert();
     minute = 0;
     sec = 03;
     document.getElementById("timer").innerHTML = minute + " : " + sec;
