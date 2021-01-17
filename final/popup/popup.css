@@ -31,7 +31,8 @@ body {
   padding: 10px
 }
 .timeVis {
-  width: 300px;
+  /*width: 300px;*/
+  width: 300
 }
 .notes-container {
   text-align: center;
