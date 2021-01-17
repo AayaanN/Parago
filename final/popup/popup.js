@@ -9,7 +9,6 @@ var page = 1;
 var minute = 24;
 var sec = 59;
 //---------------------------------- Timer Stuff
-
 if (page == 1){
   start.onclick = function() {
     // var minute = 24;
@@ -20,6 +19,8 @@ if (page == 1){
       if(minute==0 && sec == 00 && page == 1){
         minute = 4;
         sec = 59;
+        // document.getElementById("save-note").style.display = "none";
+
         page = 2;
       }
       else if(minute==0 && sec == 00 && page == 2){
@@ -28,6 +29,15 @@ if (page == 1){
 
         var myDiv=document.getElementById('timer');
         myDiv.style.display = 'none';
+
+        var text_popup = document.getElementById("popup_message");
+        text_popup.style.display = 'block';
+
+        document.getElementById("start-timer").style.display = "none";
+        document.getElementById("skip-timer").style.display = "none";
+        // var saveNoteButton = document.getElementById("save-note");
+        // element.classList.add("show");
+        document.getElementById("save-note").className = 'show'; 
       }
       else if (page==3){
         minute = 24;
@@ -59,6 +69,13 @@ skip.onclick = function() {
 
     var myDiv=document.getElementById('timer');
     myDiv.style.display = 'none';
+
+    document.getElementById("start-timer").style.display = "none";
+    document.getElementById("skip-timer").style.display = "none";
+    // var saveNoteButton = document.getElementById("save-note");
+    // element.classList.add("show");
+    document.getElementById("save-note").className = 'show'; 
+
     // minute = 24;
     // sec = 59;
     // document.getElementById("timer").innerHTML = minute + " : " + sec;
