@@ -1,5 +1,5 @@
 body {
-  padding-top: 10px;
+  padding: 10px;
   text-align: center;
   background-color: #302e2e;
 }
@@ -8,6 +8,10 @@ body {
   width: 300px;
   padding: 10px;
   text-align: center;
+}
+
+.btn-group {
+  padding: 10px
 }
 
 .notes-container {
