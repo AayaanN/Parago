@@ -77,7 +77,7 @@ if (switchTime == true){
     setInterval(function() {
       document.getElementById("timer").innerHTML = minute + " : " + sec;
       sec--;
-      if(minute==0 && sec == 00 && workPeriod==true){
+      if(minute==0 && sec == 00 && workPeriod==true){ 
         minute = 4;
         sec = 59;
       }
@@ -123,6 +123,64 @@ skip.onclick = function() {
   // }
 //}
 
+
+
+
+// !!! BELOW IS TOGGLING BETWEEN PAGES STUFF !!!
+var toggleTimer = document.querySelector('#btn-timer');
+var toggleVis = document.querySelector('#btn-vis');
+
+document.getElementById("timer-page").style.display = "block";
+document.getElementById("timeVis").style.display = "none";
+
+toggleTimer.onclick = function() {
+  document.getElementById("timer-page").style.display = "block";
+  document.getElementById("timeVis").style.display = "none";
+  console.log("1");
+};
+toggleVis.onclick = function() {
+  document.getElementById("timer-page").style.display = "none";
+  document.getElementById("timeVis").style.display = "block";
+  console.log("2");
+};
+
+
+  /*
+  if(document.getElementById('btn-timer').checked) { 
+    document.getElementById("timer-page").style.display = "block";
+    document.getElementById("timeVis").style.display = "none";
+    console.log("1");
+  } else if(document.getElementById('btn-vis').checked) { 
+    document.getElementById("timeVis").style.display = "block";
+    document.getElementById("timer-page").style.display = "none";
+    console.log("2");
+  } else { 
+    document.getElementById("timer-page").style.display = "block";
+    document.getElementById("timeVis").style.display = "none";
+    console.log("3");
+  } 
+  */
+
+/*
+ if(document.getElementById("timer-page").style.display == "block") {
+  document.getElementById("timer-page").style.display = "block";
+  document.getElementById("timeVis").style.display = "none";
+  console.log("1");
+ } else if (document.getElementById("timeVis").style.display == "block") {
+  document.getElementById("timer-page").style.display = "none";
+  document.getElementById("timeVis").style.display = "block";
+  console.log("2");
+ }
+ */
+
+document.getElementById("btn-timer").addEventListener("click", display);
+document.getElementById("btn-vis").addEventListener("click", display);
+
+function display() {  
+  
+  
+  
+};
 
 // !!! BELOW IS DATA VIS PART !!!
 // dual "tab" feature for pomodoro and visualization
