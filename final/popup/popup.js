@@ -1,20 +1,19 @@
 var saveNote = document.querySelector('#save-note');
 var deleteNotes = document.querySelector('#delete-notes');
-var notesField = document.querySelector('#note-value');
+var notesField = document.querySelector('#notes_textarea');
 //
 var start = document.querySelector('#start-timer');
 var skip = document.querySelector('#skip-timer');
+var saveNoteButton = document.querySelector('#save-note');
 var workPeriod = true;
 var page = 1;
 var minute = 24;
 var sec = 59;
 
-
 // !!! STORAGE CODE --> WORK IN PROGRESS
 
 function storeTasks(key, value) {
   chrome.storage.sync.get(key, function(data) {
-    console.log("type " + typeof data[key] + " data " + data[key]);
     if (typeof data[key] === 'undefined') {
       // this is where we were unsure about the typo --> does this mean in or not in storage??
       //    we're currently going with it means NOT in storage
@@ -42,14 +41,6 @@ function getData() {
   console.log(allKeys);
 };
 
-/*
-storeTasks("hello", 5);
-storeTasks("hello", 5);
-getData();
- */
-
-
-
 
 //---------------------------------- alarm stuff
 function alarmAlert(){
@@ -66,7 +57,6 @@ if (page == 1){
       document.getElementById("timer").innerHTML = minute + " : " + sec;
       sec--;
       if(minute==0 && sec == 00 && page == 1){
-        alarmAlert();
         minute = 4;
         sec = 59;
         // document.getElementById("save-note").style.display = "none";
@@ -104,9 +94,8 @@ if (page == 1){
 
 skip.onclick = function() {
   if (page == 1){
-    alarmAlert();
-    minute = 0;
-    sec = 03;
+    minute = 4;
+    sec = 59;
     document.getElementById("timer").innerHTML = minute + " : " + sec;
     page = 2;
     console.log(page);
@@ -139,6 +128,32 @@ skip.onclick = function() {
     // element.classList.add("notes_visible");
     // page=1
   }
+}
+
+saveNoteButton.onclick = function() {
+  console.log("save note was called!");
+  let note = notesField.value;
+  // here we manipulate note into a good format
+  storeTasks(note, 25);
+
+  document.getElementById("start-timer").style.display = "block";
+  document.getElementById("skip-timer").style.display = "block";
+  document.getElementById("save-note").className = 'hidden'; 
+
+  document.getElementById("notes_textarea").className = 'notes_hidden'; 
+
+  // var element = document.getElementById("notes_textarea");
+  // element.classList.add("notes_hidden");
+
+  var text_popup = document.getElementById("popup_message");
+  text_popup.style.display = 'none';
+
+  var myDiv=document.getElementById('timer');
+  myDiv.style.display = 'block';
+
+  page = 1;
+
+
 }
 
 //---------------------------------- Note Stuff
@@ -183,19 +198,21 @@ if (page == 3){
     });
   }
 
+  /*
   // Save Note
   saveNote.onclick = function () {
+    console.log("save note was called!");
     let note = notesField.value;
     // here we manipulate note into a good format
     storeTasks(note, 25);
 
-    /*
+    
     chrome.tabs.query({
       active: true,
       currentWindow: true
     }, function (tabs) {
-      */
-      /*
+      
+      
       // Something
       let url = tabs[0].url;
       let note = notesField.value;
@@ -212,8 +229,9 @@ if (page == 3){
       
     });
     location.reload();
-    */
+    
   };
+  */
 
 }
 // while (switchTime == false){
@@ -295,8 +313,8 @@ function display() {
 
 
 // set the dimensions and margins of the graph
-var width = 250
-    height = 250
+var width = 300
+    height = 300
     margin = 15
 
 // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
