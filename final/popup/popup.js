@@ -182,12 +182,20 @@ if (page == 3){
       });
     });
   }
+
   // Save Note
   saveNote.onclick = function () {
+    let note = notesField.value;
+    // here we manipulate note into a good format
+    storeTasks(note, 25);
+
+    /*
     chrome.tabs.query({
       active: true,
       currentWindow: true
     }, function (tabs) {
+      */
+      /*
       // Something
       let url = tabs[0].url;
       let note = notesField.value;
@@ -201,8 +209,10 @@ if (page == 3){
         });
         chrome.storage.local.set(notes);
       });
+      
     });
     location.reload();
+    */
   };
 
 }
