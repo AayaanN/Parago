@@ -8,6 +8,10 @@ body {
   background-color: #302e2e;
 }
 
+button{
+  margin: auto;
+}
+
 .timer {
   width: 300px;
   padding: 10px;
