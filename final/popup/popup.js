@@ -359,7 +359,7 @@ function display() {
 function dataVisFunc(data) {
 
   // set the dimensions and margins of the graph
-  var width = 300
+  var width = 400
       height = 300
       margin = 15
 

@@ -1,5 +1,5 @@
 {
-  "name": "Pomodoro", 
+  "name": "Parago", 
   "version": "0.0.1",
   "description": "Turn your free time into me time!",
   "permissions": ["tabs","activeTab","declarativeContent", "storage"],
