@@ -38,7 +38,8 @@ function storeTasks(key, value) {
   });
 };
 
-var globalTaskList = new Map();
+//var globalTaskList = new Map();
+var globalTaskList = {};
 
 function getData() {
   // inputting null gets it to return all keys??
@@ -57,6 +58,7 @@ function getData() {
       console.log(allKeys[i]);
       console.log(items[allKeys[i]]);
       globalTaskList[allKeys[i]] = items[allKeys[i]];
+      //globalTaskList.set(allKeys[i], items[allKeys[i]])
     }
     //return items;
   });
@@ -298,7 +300,8 @@ toggleVis.onclick = function() {
   getData();
   console.log("globalTaskList");
   console.log(globalTaskList);
-  console.log("2");
+  //console.log("2");
+  setTimeout(function() {dataVisFunc(globalTaskList)}, 500);
 };
 
 console.log("globalTaskList");
@@ -346,98 +349,119 @@ function display() {
 
 // dual "tab" feature for pomodoro and visualization
 
+function dataVisFunc(data) {
 
-// set the dimensions and margins of the graph
-var width = 300
-    height = 300
-    margin = 15
+  // set the dimensions and margins of the graph
+  var width = 300
+      height = 300
+      margin = 15
 
-// The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
-var radius = Math.min(width, height) / 2 - margin;
+  // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
+  var radius = Math.min(width, height) / 2 - margin;
 
-// append the svg object to 'timeVis' div in popup.html
-var svg = d3.select("#timeVis")
-  .append("svg")
-    .attr("width", width)
-    .attr("height", height)
-  .append("g")
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+  // append the svg object to 'timeVis' div in popup.html
+  var svg = d3.select("#timeVis")
+    .append("svg")
+      .attr("width", width)
+      .attr("height", height)
+    .append("g")
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-// Create dummy data
-//var data = {a: 9, b: 20, c:30, d:8, e:12, f:3, g:7, h:14}
-var data = globalTaskList;
+  // Create dummy data
+  var data2 = {a: 9, b: 20, c:30, d:8, e:12, f:3, g:7, h:14}
+  console.log("dummy data pls be the same")
+  console.log(data2);
+  //var data = ourTaskList;
+  console.log("does it go till here?yay");
+  console.log(data)
+  //var data_obj = Object.fromEntries(ourTaskList);
+  //console.log("datta entries :))");
+  //console.log(data_obj)
 
-// set the color scale
-var color = d3.scaleOrdinal()
-  //.domain(["a", "b", "c", "d", "e", "f", "g", "h"])
-  .domain(data.keys())
-  .range(d3.schemeSet2);
+  // set the color scale
+  var color = d3.scaleOrdinal()
+    //.domain(["a", "b", "c", "d", "e", "f", "g", "h"])
+    //.domain(Object.keys(data))
+    .domain(Object.getOwnPropertyNames(data))
+    .range(d3.schemeSet2);
 
-console.log(data);
-console.log("data.keys()");
-console.log(data.keys());
+  console.log("test object.keys(data))")
+  console.log(Object.keys(data));
+  console.log("dummy data version")
+  console.log(Object.keys(data2));
+  console.log("test get own property names");
+  console.log(Object.getOwnPropertyNames(data));
+  console.log("DUMMY: test get own property names");
+  console.log(Object.getOwnPropertyNames(data2));
+  console.log("type of our data" + typeof data + "type of dummy" + typeof data2)
 
-// Compute the position of each group on the pie:
-var pie = d3.pie()
-  .sort(null) // Do not sort group by size
-  .value(function(d) {return d.value; })
-var data_ready = pie(d3.entries(data))
+  //console.log(data);
+  //console.log("data.keys()");
 
-// The arc generator
-var arc = d3.arc()
-  .innerRadius(radius * 0.5)         // This is the size of the donut hole
-  .outerRadius(radius * 0.8)
+  // Compute the position of each group on the pie:
+  var pie = d3.pie()
+    .sort(null) // Do not sort group by size
+    .value(function(d) {return d.value; })
+  var data_ready = pie(d3.entries(data))
+  console.log("d3 enties here!!")
+  console.log(d3.entries(data));
 
-// Another arc that won't be drawn. Just for labels positioning
-var outerArc = d3.arc()
-  .innerRadius(radius * 0.9)
-  .outerRadius(radius * 0.9)
+  // The arc generator
+  var arc = d3.arc()
+    .innerRadius(radius * 0.5)         // This is the size of the donut hole
+    .outerRadius(radius * 0.8)
 
-// Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
-svg
-  .selectAll('allSlices')
-  .data(data_ready)
-  .enter()
-  .append('path')
-  .attr('d', arc)
-  .attr('fill', function(d){ return(color(d.data.key)) })
-  .attr("stroke", "black")
-  .style("stroke-width", "2px")
-  .style("opacity", 1.0)
+  // Another arc that won't be drawn. Just for labels positioning
+  var outerArc = d3.arc()
+    .innerRadius(radius * 0.9)
+    .outerRadius(radius * 0.9)
 
-// Add the polylines between chart and labels:
-svg
-  .selectAll('allPolylines')
-  .data(data_ready)
-  .enter()
-  .append('polyline')
-    .attr("stroke", "white")
-    .style("fill", "none")
-    .attr("stroke-width", 1)
-    .attr('points', function(d) {
-      var posA = arc.centroid(d) // line insertion in the slice
-      var posB = outerArc.centroid(d) // line break: we use the other arc generator that has been built only for that
-      var posC = outerArc.centroid(d); // Label position = almost the same as posB
-      var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2 // we need the angle to see if the X position will be at the extreme right or extreme left
-      posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1); // multiply by 1 or -1 to put it on the right or on the left
-      return [posA, posB, posC]
-    })
+  // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
+  svg
+    .selectAll('allSlices')
+    .data(data_ready)
+    .enter()
+    .append('path')
+    .attr('d', arc)
+    .attr('fill', function(d){ return(color(d.data.key)) })
+    .attr("stroke", "black")
+    .style("stroke-width", "2px")
+    .style("opacity", 1.0)
 
-// Add the polylines between chart and labels:
-svg
-  .selectAll('allLabels')
-  .data(data_ready)
-  .enter()
-  .append('text')
-    .text( function(d) { console.log(d.data.key) ; return d.data.key } )
-    .attr('transform', function(d) {
-        var pos = outerArc.centroid(d);
-        var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-        pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
-        return 'translate(' + pos + ')';
-    })
-    .style('text-anchor', function(d) {
-        var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-        return (midangle < Math.PI ? 'start' : 'end')
-    })
-    .style('fill', 'white')
+  // Add the polylines between chart and labels:
+  svg
+    .selectAll('allPolylines')
+    .data(data_ready)
+    .enter()
+    .append('polyline')
+      .attr("stroke", "white")
+      .style("fill", "none")
+      .attr("stroke-width", 1)
+      .attr('points', function(d) {
+        var posA = arc.centroid(d) // line insertion in the slice
+        var posB = outerArc.centroid(d) // line break: we use the other arc generator that has been built only for that
+        var posC = outerArc.centroid(d); // Label position = almost the same as posB
+        var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2 // we need the angle to see if the X position will be at the extreme right or extreme left
+        posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1); // multiply by 1 or -1 to put it on the right or on the left
+        return [posA, posB, posC]
+      })
+
+  // Add the polylines between chart and labels:
+  svg
+    .selectAll('allLabels')
+    .data(data_ready)
+    .enter()
+    .append('text')
+      .text( function(d) { console.log(d.data.key) ; return d.data.key } )
+      .attr('transform', function(d) {
+          var pos = outerArc.centroid(d);
+          var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+          pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
+          return 'translate(' + pos + ')';
+      })
+      .style('text-anchor', function(d) {
+          var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+          return (midangle < Math.PI ? 'start' : 'end')
+      })
+      .style('fill', 'white')
+  }
