@@ -25,9 +25,14 @@ if (page == 1){
       else if(minute==0 && sec == 00 && page == 2){
         var element = document.getElementById("notes_textarea");
         element.classList.add("notes_visible");
+
+        var myDiv=document.getElementById('timer');
+        myDiv.style.display = 'none';
+      }
+      else if (page==3){
         minute = 24;
         sec = 59;
-        page = 3;
+        page = 1;
       }
       else if (sec == 00) {
         minute --;
@@ -46,12 +51,25 @@ skip.onclick = function() {
     console.log(page);
   }
   else if (page == 2){
-    minute = 24;
-    sec = 59;
-    document.getElementById("timer").innerHTML = minute + " : " + sec;
-    console.log("while loop");
+    var element = document.getElementById("notes_textarea");
+    element.classList.add("notes_visible");
+
+    var text_popup = document.getElementById("popup_message");
+    text_popup.style.display = 'block';
+
+    var myDiv=document.getElementById('timer');
+    myDiv.style.display = 'none';
+    // minute = 24;
+    // sec = 59;
+    // document.getElementById("timer").innerHTML = minute + " : " + sec;
+    // console.log("while loop");
     page = 3;
     console.log(page);
+  }
+  else if(page ==3){
+    // var element = document.getElementById("notes_textarea");
+    // element.classList.add("notes_visible");
+    // page=1
   }
 }
 
