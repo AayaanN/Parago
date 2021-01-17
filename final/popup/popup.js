@@ -217,8 +217,8 @@ function display() {
 
 
 // set the dimensions and margins of the graph
-var width = 300
-    height = 300
+var width = 250
+    height = 250
     margin = 15
 
 // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
@@ -303,3 +303,4 @@ svg
         var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
         return (midangle < Math.PI ? 'start' : 'end')
     })
+    .style('fill', 'white')
