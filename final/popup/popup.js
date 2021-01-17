@@ -8,8 +8,56 @@ var workPeriod = true;
 var page = 1;
 var minute = 24;
 var sec = 59;
-//---------------------------------- Timer Stuff
 
+
+// !!! STORAGE CODE --> WORK IN PROGRESS
+
+function storeTasks(key, value) {
+  chrome.storage.sync.get(key, function(data) {
+    console.log("type " + typeof data[key] + " data " + data[key]);
+    if (typeof data[key] === 'undefined') {
+      // this is where we were unsure about the typo --> does this mean in or not in storage??
+      //    we're currently going with it means NOT in storage
+      chrome.storage.sync.set({key: value}, function() {
+        console.log(value + " was saved for " + key);
+      });
+    } else {
+      var preValue = chrome.storage.sync.get(key,function(data){
+        return data[key];
+      });
+      chrome.storage.sync.set({key: value+preValue}, function() {
+        console.log(value+preValue + " was saved for " + key);
+      });
+    }
+  });
+};
+
+function getData() {
+  // inputting null gets it to return all keys??
+  var allKeys = chrome.storage.sync.get(null, function(items) {
+    console.log("hi");
+    return Object.keys(items);
+    //return Object.keys(items);
+  });
+  console.log(allKeys);
+};
+
+/*
+storeTasks("hello", 5);
+storeTasks("hello", 5);
+getData();
+ */
+
+
+
+
+//---------------------------------- alarm stuff
+function alarmAlert(){
+  var myAudio = new Audio();
+  myAudio.src = "alert.mp3"
+  myAudio.play();
+}
+//---------------------------------- Timer Stuff
 if (page == 1){
   start.onclick = function() {
     // var minute = 24;
@@ -18,8 +66,11 @@ if (page == 1){
       document.getElementById("timer").innerHTML = minute + " : " + sec;
       sec--;
       if(minute==0 && sec == 00 && page == 1){
+        alarmAlert();
         minute = 4;
         sec = 59;
+        // document.getElementById("save-note").style.display = "none";
+
         page = 2;
       }
       else if(minute==0 && sec == 00 && page == 2){
@@ -28,6 +79,15 @@ if (page == 1){
 
         var myDiv=document.getElementById('timer');
         myDiv.style.display = 'none';
+
+        var text_popup = document.getElementById("popup_message");
+        text_popup.style.display = 'block';
+
+        document.getElementById("start-timer").style.display = "none";
+        document.getElementById("skip-timer").style.display = "none";
+        // var saveNoteButton = document.getElementById("save-note");
+        // element.classList.add("show");
+        document.getElementById("save-note").className = 'show'; 
       }
       else if (page==3){
         minute = 24;
@@ -44,6 +104,7 @@ if (page == 1){
 
 skip.onclick = function() {
   if (page == 1){
+    alarmAlert();
     minute = 0;
     sec = 03;
     document.getElementById("timer").innerHTML = minute + " : " + sec;
@@ -59,6 +120,13 @@ skip.onclick = function() {
 
     var myDiv=document.getElementById('timer');
     myDiv.style.display = 'none';
+
+    document.getElementById("start-timer").style.display = "none";
+    document.getElementById("skip-timer").style.display = "none";
+    // var saveNoteButton = document.getElementById("save-note");
+    // element.classList.add("show");
+    document.getElementById("save-note").className = 'show'; 
+
     // minute = 24;
     // sec = 59;
     // document.getElementById("timer").innerHTML = minute + " : " + sec;
@@ -303,4 +371,7 @@ svg
         var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
         return (midangle < Math.PI ? 'start' : 'end')
     })
+<<<<<<< HEAD
     .style('fill', 'white')
+=======
+>>>>>>> f0aeb591f06d39847b0c68f52c2e4af0481b2969
