@@ -223,9 +223,9 @@ function display() {
 
 
 // set the dimensions and margins of the graph
-var width = 450
-    height = 450
-    margin = 40
+var width = 300
+    height = 300
+    margin = 15
 
 // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
 var radius = Math.min(width, height) / 2 - margin;
@@ -244,7 +244,7 @@ var data = {a: 9, b: 20, c:30, d:8, e:12, f:3, g:7, h:14}
 // set the color scale
 var color = d3.scaleOrdinal()
   .domain(["a", "b", "c", "d", "e", "f", "g", "h"])
-  .range(d3.schemeSet3);
+  .range(d3.schemeSet2);
 
 // Compute the position of each group on the pie:
 var pie = d3.pie()
@@ -270,9 +270,9 @@ svg
   .append('path')
   .attr('d', arc)
   .attr('fill', function(d){ return(color(d.data.key)) })
-  .attr("stroke", "white")
+  .attr("stroke", "black")
   .style("stroke-width", "2px")
-  .style("opacity", 0.7)
+  .style("opacity", 1.0)
 
 // Add the polylines between chart and labels:
 svg
@@ -280,7 +280,7 @@ svg
   .data(data_ready)
   .enter()
   .append('polyline')
-    .attr("stroke", "black")
+    .attr("stroke", "white")
     .style("fill", "none")
     .attr("stroke-width", 1)
     .attr('points', function(d) {
