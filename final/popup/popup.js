@@ -24,15 +24,16 @@ function storeTasks(key, value) {
       });
     } else {
       console.log("made it to else statement!!");
-      chrome.storage.sync.get(key, function(data) {
+      //chrome.storage.sync.get(key, function(data) {
         preValue =  data[key];
+        console.log("preValue " + preValue);
         var map2 = {};
-        map2[key] = value + preValue;
+        map2[key] = (value + preValue);
+        console.log("map2 " + map2[key]);
         chrome.storage.sync.set(map2, function() {
           console.log(value+preValue + " was saved for " + key);
         });
-      });
-      
+     // });
     }
   });
 };
@@ -44,11 +45,15 @@ function getData() {
     console.log("hi");
     return Object.keys(items);
     */
+    console.log("items: ");
+    console.log(items);
     var allKeys = Object.keys(items);
     console.log("allKeys " + allKeys + " " + allKeys.length);
 
-    for (key in allKeys) {
-      console.log("loop " + key + " : " + allKeys[key]);
+    for (var i = 0; i < allKeys.length; i++) {
+      console.log("big for loop");
+      console.log(allKeys[i]);
+      console.log(items[allKeys[i]]);
     }
     //return Object.keys(items);
   });
