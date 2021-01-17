@@ -4,6 +4,7 @@ var notesField = document.querySelector('#note-value');
 //
 var start = document.querySelector('#start-timer');
 var skip = document.querySelector('#skip-timer');
+var saveNoteButton = document.querySelector('#save-note');
 var workPeriod = true;
 var page = 1;
 var minute = 24;
@@ -60,8 +61,8 @@ if (page == 1){
 
 skip.onclick = function() {
   if (page == 1){
-    minute = 0;
-    sec = 03;
+    minute = 4;
+    sec = 59;
     document.getElementById("timer").innerHTML = minute + " : " + sec;
     page = 2;
     console.log(page);
@@ -94,6 +95,27 @@ skip.onclick = function() {
     // element.classList.add("notes_visible");
     // page=1
   }
+}
+
+saveNoteButton.onclick = function() {
+  document.getElementById("start-timer").style.display = "block";
+  document.getElementById("skip-timer").style.display = "block";
+  document.getElementById("save-note").className = 'hidden'; 
+
+  document.getElementById("notes_textarea").className = 'notes_hidden'; 
+
+  // var element = document.getElementById("notes_textarea");
+  // element.classList.add("notes_hidden");
+
+  var text_popup = document.getElementById("popup_message");
+  text_popup.style.display = 'none';
+
+  var myDiv=document.getElementById('timer');
+  myDiv.style.display = 'block';
+
+  page = 1;
+
+
 }
 
 //---------------------------------- Note Stuff
