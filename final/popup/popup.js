@@ -371,7 +371,4 @@ svg
         var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
         return (midangle < Math.PI ? 'start' : 'end')
     })
-<<<<<<< HEAD
     .style('fill', 'white')
-=======
->>>>>>> f0aeb591f06d39847b0c68f52c2e4af0481b2969
