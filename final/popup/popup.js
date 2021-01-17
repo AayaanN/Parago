@@ -38,6 +38,8 @@ function storeTasks(key, value) {
   });
 };
 
+var globalTaskList = new Map();
+
 function getData() {
   // inputting null gets it to return all keys??
   var allKeys = chrome.storage.sync.get(null, function(items) {
@@ -54,9 +56,13 @@ function getData() {
       console.log("big for loop");
       console.log(allKeys[i]);
       console.log(items[allKeys[i]]);
+      globalTaskList[allKeys[i]] = items[allKeys[i]];
     }
-    //return Object.keys(items);
+    //return items;
   });
+  //console.log("ALLKEYS");
+  //console.log(allKeys);
+  //return allKeys;
   //console.log("allKeys " + allKeys);
 };
 
@@ -290,10 +296,13 @@ toggleVis.onclick = function() {
   document.getElementById("timer-page").style.display = "none";
   document.getElementById("timeVis").style.display = "block";
   getData();
+  console.log("globalTaskList");
+  console.log(globalTaskList);
   console.log("2");
 };
 
-
+console.log("globalTaskList");
+console.log(globalTaskList);
   /*
   if(document.getElementById('btn-timer').checked) { 
     document.getElementById("timer-page").style.display = "block";
@@ -332,6 +341,9 @@ function display() {
 };
 
 // !!! BELOW IS DATA VIS PART !!!
+
+// MOVE THIS INTO TOGGLEVIS FUNCTION??
+
 // dual "tab" feature for pomodoro and visualization
 
 
@@ -352,12 +364,18 @@ var svg = d3.select("#timeVis")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
 // Create dummy data
-var data = {a: 9, b: 20, c:30, d:8, e:12, f:3, g:7, h:14}
+//var data = {a: 9, b: 20, c:30, d:8, e:12, f:3, g:7, h:14}
+var data = globalTaskList;
 
 // set the color scale
 var color = d3.scaleOrdinal()
-  .domain(["a", "b", "c", "d", "e", "f", "g", "h"])
+  //.domain(["a", "b", "c", "d", "e", "f", "g", "h"])
+  .domain(data.keys())
   .range(d3.schemeSet2);
+
+console.log(data);
+console.log("data.keys()");
+console.log(data.keys());
 
 // Compute the position of each group on the pie:
 var pie = d3.pie()
