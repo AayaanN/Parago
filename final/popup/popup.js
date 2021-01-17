@@ -8,6 +8,52 @@ var workPeriod = true;
 var page = 1;
 var minute = 24;
 var sec = 59;
+
+
+// !!! STORAGE CODE --> WORK IN PROGRESS
+
+function storeTasks(key, value) {
+  chrome.storage.sync.get(key, function(data) {
+    console.log("type " + typeof data[key] + " data " + data[key]);
+    if (typeof data[key] === 'undefined') {
+      // this is where we were unsure about the typo --> does this mean in or not in storage??
+      //    we're currently going with it means NOT in storage
+      chrome.storage.sync.set({key: value}, function() {
+        console.log(value + " was saved for " + key);
+      });
+    } else {
+      var preValue = chrome.storage.sync.get(key,function(data){
+        return data[key];
+      });
+      chrome.storage.sync.set({key: value+preValue}, function() {
+        console.log(value+preValue + " was saved for " + key);
+      });
+    }
+  });
+};
+
+function getData() {
+  // inputting null gets it to return all keys??
+  var allKeys = chrome.storage.sync.get(null, function(items) {
+    console.log("hi");
+    return Object.keys(items);
+    //return Object.keys(items);
+  });
+  console.log(allKeys);
+};
+
+/*
+storeTasks("hello", 5);
+storeTasks("hello", 5);
+getData();
+ */
+
+
+
+
+
+
+
 //---------------------------------- Timer Stuff
 
 if (page == 1){
