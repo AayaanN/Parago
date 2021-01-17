@@ -8,6 +8,12 @@ var workPeriod = true;
 var page = 1;
 var minute = 24;
 var sec = 59;
+//---------------------------------- alarm stuff
+function alarmAlert(){
+  var myAudio = new Audio();
+  myAudio.src = "alert.mp3"
+  myAudio.play();
+}
 //---------------------------------- Timer Stuff
 
 if (page == 1){
