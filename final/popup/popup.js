@@ -10,6 +10,7 @@ var page = 1;
 var minute = 24;
 var sec = 59;
 
+
 // !!! STORAGE CODE --> WORK IN PROGRESS
 
 function storeTasks(key, value) {
@@ -67,9 +68,6 @@ function getData() {
   //return allKeys;
   //console.log("allKeys " + allKeys);
 };
-
-storeTasks("sleep", 25);
-storeTasks("hello", 25);
 
 
 //---------------------------------- alarm stuff
@@ -189,7 +187,7 @@ saveNoteButton.onclick = function() {
   document.getElementById("timer").innerHTML = minute + " : " + sec;
 
   page = 1;
-
+  location.reload();
 
 }
 
@@ -357,6 +355,8 @@ function display() {
 // dual "tab" feature for pomodoro and visualization
 
 function dataVisFunc(data) {
+
+  d3.select("svg").remove();
 
   // set the dimensions and margins of the graph
   var width = 400
