@@ -1,4 +1,8 @@
 body {
+  /*
+  width: 300px;
+  height: 400px;
+  */
   padding: 10px;
   text-align: center;
   background-color: #302e2e;
@@ -11,9 +15,12 @@ body {
 }
 
 .btn-group {
+
   padding: 10px
 }
-
+.timeVis {
+  width: 300px;
+}
 .notes-container {
   text-align: center;
 }
