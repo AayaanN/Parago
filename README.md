@@ -17,20 +17,21 @@ Javascript, CSS, HTML
 4. Click 'load unpacked', and select the cloned repository from your files
 5. Pin Parago to your Chrome Extensions bar and click on it to use!
 
-### Contributors
-Kailin Chu, Aayaan Naqvi, Yaser Nossibeh, and Natalie Volk
+### Demo
+Switching between Timer and Visualizer tabs <br />
+![Alt Text](https://media.giphy.com/media/RJBv2BQsB4F6jYI08y/giphy.gif) <br /> <br /> <br />
+
+Completing a Pomodoro cycle, adding in a task, and updating Visualizer <br />
+![Alt Text](https://media.giphy.com/media/KTnQsmu3Cy4S6qRRjL/giphy.gif) <br /> <br />
 
 ### What's next
 We would like to add more customizability; for example, so that you can change the length of the timer or the way the data is displayed. We think it would be really cool to use a Natural Language Processing API on the 'task' that the user enters, so that even if the user enters slightly different tasks (e.g., studying math vs. studying science), Parago can intelligently group those together in the data visualization chart. Finally, we would love to get Parago on the Chrome Webstore so that our friends and family can start using it!
 We're also open to suggestions :) 
 
-### Demo
-![Alt Text](https://media.giphy.com/media/RJBv2BQsB4F6jYI08y/giphy.gif) <br />
-Switching between Timer and Visualizer tabs <br /> <br />
+### Contributors
+Kailin Chu, Aayaan Naqvi, Yaser Nossibeh, and Natalie Volk
 
 
-### Demo (Gesture Control, Game Page)
-![Alt Text](https://media.giphy.com/media/KTnQsmu3Cy4S6qRRjL/giphy.gif) <br />
-Completing a Pomodoro cycle, adding in a task, and updating Visualizer
+
 
 
