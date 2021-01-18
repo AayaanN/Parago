@@ -361,7 +361,7 @@ function dataVisFunc(data) {
   // set the dimensions and margins of the graph
   var width = 400
       height = 300
-      margin = 15
+      margin = 35
 
   // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
   var radius = Math.min(width, height) / 2 - margin;
